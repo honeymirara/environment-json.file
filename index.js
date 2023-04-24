@@ -23,20 +23,21 @@ app.get('/:id', (req, res) => {
     } catch (err) {
         res.send(err.message);
     }
-
-
-})
+});
 
 app.post('/', (req, res) => {
     try {
         const {
             label, category, priority
         } = req.body;
-      const createData = createData(label, category, priority)
+        const data = createData(label, category, priority);
+        res.send(data);
     } catch (err) {
         res.send(err.message);
     }
-})
+});
+
+
 
 app.listen(3000, () => {
     console.log('server is running');
